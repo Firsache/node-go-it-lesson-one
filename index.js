@@ -1,4 +1,5 @@
-console.log("Hello, Node.js!");
+const argv = require("yargs").argv;
+
 const {
   listContacts,
   getContactById,
@@ -6,44 +7,29 @@ const {
   addContact,
 } = require("./contacts");
 
-const invokeAction = async ({ action, id, data }) => {
+async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
-    case "getAll":
+    case "list":
       const contacts = await listContacts();
-      console.log(contacts);
+      console.table(contacts);
       break;
-    case "getById":
+    case "get":
       const contactById = await getContactById(id);
       if (!contactById) {
         throw new Error(`The contact with ID ${id} is not found`);
       }
       console.log(contactById);
       break;
-    case "removeById":
+    case "remove":
       const removeById = await removeContact(id);
-      console.log(removeById);
+      console.table(removeById);
       break;
-    case "addContact":
-      const addNewContact = await addContact(data);
+    case "add":
+      const addNewContact = await addContact(name, email, phone);
       console.log(addNewContact);
       break;
     default:
-      console.log("Unknown action");
+      console.warn(`${action} Unknown action type!`);
   }
-};
-
-// invokeAction({ action: "getAll" });  DONE
-
-// let id = "qdggE76Jtbfd9eWJHrssH";
-// invokeAction({ action: "getById", id });  DONE
-
-// let id = "rsKkOQUi80UsgVPCcLZZR";
-// invokeAction({ action: "removeById", id });  DELETES A CONTACT MANY TIMES
-
-// let dataInfo = {
-//   name: "Liubov Firsova",
-//   email: "test@mail.com",
-//   phone: "(095) 333-3333",
-// };
-
-// invokeAction({ action: "addContact", data: dataInfo });  ADDS A CONTACT MANY TIMES
+}
+invokeAction(argv);

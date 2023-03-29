@@ -29,11 +29,12 @@ async function removeContact(contactId) {
   return newContactsArr;
 }
 
-async function addContact(data) {
+async function addContact(name, email, phone) {
   let contactsArr = await listContacts();
-  let newContact = { id: v4(), ...data };
+  let newContact = { id: v4(), name, email, phone };
+
   let newContactsArr = [...contactsArr, newContact];
-  //   contactsArr.push(newContact);
+
   await writeFile(contactsPath, JSON.stringify(newContactsArr));
   return newContact;
 }

@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/Firsache/node-go-it-lesson-one#readme",
   "dependencies": {
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yargs": "^17.7.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
