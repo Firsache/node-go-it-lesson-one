@@ -20,4 +20,4 @@ https://prnt.sc/H-2VGT9M5SmX
 # Видаляємо контакт
 
 node index.js --action="remove" --id qdggE76Jtbfd9eWJHrssH
-https://prnt.sc/7SwAojTD0__e
+https://prnt.sc/our7hBMWa6Og
