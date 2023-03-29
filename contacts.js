@@ -5,9 +5,13 @@ const path = require("path");
 const contactsPath = path.resolve("./db/contacts.json");
 
 async function listContacts() {
-  const response = await readFile(contactsPath);
-  const contactsArr = JSON.parse(response);
-  return contactsArr;
+  try {
+    const response = await readFile(contactsPath);
+    const contactsArr = JSON.parse(response);
+    return contactsArr;
+  } catch (err) {
+    console.error(err.message);
+  }
 }
 
 async function getContactById(contactId) {
