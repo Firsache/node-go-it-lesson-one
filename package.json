@@ -19,7 +19,9 @@
     "url": "https://github.com/Firsache/node-go-it-lesson-one/issues"
   },
   "homepage": "https://github.com/Firsache/node-go-it-lesson-one#readme",
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^9.0.0"
+  },
   "devDependencies": {
     "nodemon": "^2.0.22"
   }
