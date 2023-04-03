@@ -1,6 +1,6 @@
 # node-go-it-lesson-one
 
-CLI application
+CLI(command-line interface) application
 
 # Отримуємо і виводимо весь список контактів у вигляді таблиці (console.table)
 
